@@ -1,8 +1,5 @@
 // ignore_for_file: prefer_const_constructors, duplicate_ignore
 
-import 'dart:convert';
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -120,6 +117,7 @@ class _MyCustomFormState extends State<MyCustomForm> {
                       fontSize: 50.0,
                       color: Colors.white,
                     ),
+                    keyboardType: TextInputType.number,
                     controller: myController2,
                     onChanged: (text) {
                       myController.text = valor5;
@@ -149,6 +147,7 @@ class _MyCustomFormState extends State<MyCustomForm> {
                       fontSize: 50.0,
                       color: Colors.white,
                     ),
+                    keyboardType: TextInputType.number,
                     controller: myController,
                     onChanged: (text) {
                       myController2.text = valor5;
