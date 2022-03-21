@@ -24,7 +24,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// Define a custom Form widget.
 class MyCustomForm extends StatefulWidget {
   const MyCustomForm({Key? key}) : super(key: key);
 
@@ -32,39 +31,33 @@ class MyCustomForm extends StatefulWidget {
   _MyCustomFormState createState() => _MyCustomFormState();
 }
 
-// Define a corresponding State class.
-// This class holds data related to the Form.
 class _MyCustomFormState extends State<MyCustomForm> {
-  // Create a text controller and use it to retrieve the current value
-  // of the TextField.
   final myController = TextEditingController();
   final myController2 = TextEditingController();
-  String valor1 = 'a';
-  double valor2 = 1;
-  String valor3 = 'a';
-  double valor4 = 1;
-  String valor5 = 'a';
+  String valor1 = '';
+  double valor2 = 0;
+  String valor3 = '';
+  double valor4 = 0;
+  String valor5 = '';
 
   @override
   void initState() {
     super.initState();
     myController.text = '32.00';
     myController2.text = '0';
-    // Start listening to changes.
+
     myController.addListener(_converterC);
-    myController2.addListener(_printLatestValue);
+    myController2.addListener(_converterF);
   }
 
   @override
   void dispose() {
-    // Clean up the controller when the widget is removed from the widget tree.
-    // This also removes the _printLatestValue listener.
     myController.dispose();
     myController2.dispose();
     super.dispose();
   }
 
-  void _printLatestValue() {
+  void _converterF() {
     valor3 = '${myController2.text}';
     if (valor3 == '') {
       valor3 = '0';
